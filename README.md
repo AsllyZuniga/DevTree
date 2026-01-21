@@ -1,18 +1,52 @@
-# Proyectos FullStack con Node.js y TypeScript
+DevTree is a Linktree-style web application that allows users to create a personalized profile with links to their favorite social networks and platforms such as Instagram, YouTube, Facebook, TikTok, GitHub, and more.
 
-Este repositorio contiene tres proyectos
+The project is built with a Node.js + Express backend and a React frontend using Vite, following modern best practices such as authentication, remote state management with React Query, and file uploads.
 
-## 📌 Proyectos
+🚀 Main Features
 
-### 1. DevTree 
-- Tecnologías: Express, MongoDB, React, Vite, TailwindCSS, TypeScript
-- Funcionalidades: Registro de usuarios, enlaces personalizados, autenticación, subida de archivos, React Query.
+🔐 User authentication (sign up & login)
 
-### 2. CashTrackr (Administrador de Gastos)
-- Tecnologías: Express, Sequelize, Next.js (App Router), TailwindCSS, TypeScript
-- Funcionalidades: Presupuestos, gastos por usuario, arquitectura limpia, autenticación segura.
+👤 Customizable user profile
 
-### 3. Punto de Venta (POS)
-- Tecnologías: NestJS, TypeORM, Next.js, TailwindCSS, TypeScript
-- Funcionalidades: Gestión de ventas, productos, usuarios y lógica real de un sistema de punto de venta.
+🔗 Social links management (create, edit, delete)
 
+🎨 Theme customization
+
+☁️ File upload support (profile image)
+
+⚡ React Query for data fetching and caching
+
+📱 Responsive design
+
+🧩 Separated Frontend / Backend architecture
+
+🛠️ Tech Stack
+Backend
+
+Node.js
+
+Express
+
+MongoDB (Mongoose)
+
+JWT (Authentication)
+
+Multer (File uploads)
+
+bcrypt (Password hashing)
+
+dotenv
+
+Frontend
+
+React
+
+Vite
+
+React Router DOM
+
+React Query (@tanstack/react-query)
+
+Axios
+
+CSS / Tailwind CSS (depending on implementation)
