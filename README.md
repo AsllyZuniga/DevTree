@@ -6,9 +6,12 @@ The project is built with a Node.js + Express backend and a React frontend using
 
 🔐 User authentication (sign up & login)
 
+<<<<<<< Updated upstream
 👤 Customizable user profile
 
 🔗 Social links management (create, edit, delete)
+=======
+>>>>>>> Stashed changes
 
 🎨 Theme customization
 
