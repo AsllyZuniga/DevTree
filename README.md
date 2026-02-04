@@ -1,27 +1,30 @@
+DevTree
+
 DevTree is a Linktree-style web application that allows users to create a personalized profile with links to their favorite social networks and platforms such as Instagram, YouTube, Facebook, TikTok, GitHub, and more.
 
-The project is built with a Node.js + Express backend and a React frontend using Vite, following modern best practices such as authentication, remote state management with React Query, and file uploads.
+The project follows a separated Frontend / Backend architecture, built with modern web technologies and best practices.
 
-🚀 Main Features
+🚀 Features
 
 🔐 User authentication (sign up & login)
 
-<<<<<<< Updated upstream
-👤 Customizable user profile
+👤 Customizable user profile (image & bio)
 
 🔗 Social links management (create, edit, delete)
-=======
->>>>>>> Stashed changes
 
-🎨 Theme customization
+☁️ Profile image upload
 
-☁️ File upload support (profile image)
+⚡ Data fetching & caching with React Query
 
-⚡ React Query for data fetching and caching
+📱 Fully responsive design
 
-📱 Responsive design
+🧩 Frontend / Backend separation
 
-🧩 Separated Frontend / Backend architecture
+🗂️ Project Structure
+DevTree/
+├── backend/
+├── frontend/
+└── README.md
 
 🛠️ Tech Stack
 Backend
@@ -32,11 +35,11 @@ Express
 
 MongoDB (Mongoose)
 
-JWT (Authentication)
+JWT Authentication
 
-Multer (File uploads)
+Multer (file uploads)
 
-bcrypt (Password hashing)
+bcrypt
 
 dotenv
 
@@ -46,10 +49,40 @@ React
 
 Vite
 
+TypeScript
+
 React Router DOM
 
 React Query (@tanstack/react-query)
 
 Axios
 
-CSS / Tailwind CSS (depending on implementation)
+Tailwind CSS
+
+⚙️ Installation
+Backend
+cd backend
+npm install
+npm run dev
+
+
+Create a .env file:
+
+PORT=
+MONGO_URI=
+JWT_SECRET=
+
+Frontend
+cd frontend
+npm install
+npm run dev
+
+🌐 Development URLs
+
+Backend: http://localhost:4000
+
+Frontend: http://localhost:5173
+
+📄 License
+
+MIT License
