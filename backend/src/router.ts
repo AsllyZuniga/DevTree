@@ -3,6 +3,7 @@ import { body } from "express-validator";
 
 import { createAccount, getUser, login } from "./handlers";
 import { handleInputErrors } from "./middleware/validation";
+import { authenticate } from "./middleware/auth";
 
 const router = Router();
 
@@ -17,7 +18,7 @@ router.post(
     .isLength({ min: 8 })
     .withMessage("El password es muy corto, mínimo 8 caracteres"),
   handleInputErrors,
-  createAccount
+  createAccount,
 );
 
 router.post(
@@ -26,8 +27,8 @@ router.post(
   body("email").isEmail().withMessage("E-mail no válido"),
   body("password").notEmpty().withMessage("El password es obligatorio"),
   handleInputErrors,
-  login
+  login,
 );
 
-router.get('/user', getUser)
+router.get("/user", authenticate, getUser);
 export default router;
