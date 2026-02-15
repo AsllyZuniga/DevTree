@@ -18,6 +18,7 @@ export default function AppLayout() {
   if (isError) {
     return <Navigate to={"/auth/login"} />;
   }
+  console.log(data);
   return (
     <>
       <header className="bg-slate-800 py-5">
