@@ -14,10 +14,9 @@ export default function AppLayout() {
   });
   if (isLoading) {
     return <div>Cargando...</div>;
-    }
+  }
   if (isError) {
     return <Navigate to={"/auth/login"} />;
-
   }
   return (
     <>
