@@ -1,6 +1,30 @@
+import { useForm } from "react-hook-form";
+import { useQueryClient } from "@tanstack/react-query";
+import ErrorMessage from "../components/ErrorMessage";
+import type { ProfileForm, User } from "../types";
 export default function ProfileView() {
+  const queryClient = useQueryClient();
+  const data: User = queryClient.getQueryData(["user"])!;
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      handle: data.handle,
+      description: data.description,
+    },
+  });
+  const handleUserProfileForm = (formData: ProfileForm) => {
+    console.log(formData);
+  };
+
   return (
-    <form className="bg-white p-10 rounded-lg space-y-5" onSubmit={() => {}}>
+    <form
+      className="bg-white p-10 rounded-lg space-y-5"
+      onSubmit={handleSubmit(() => {})}
+    >
       <legend className="text-2xl text-slate-800 text-center">
         Editar Información
       </legend>
@@ -10,7 +34,11 @@ export default function ProfileView() {
           type="text"
           className="border-none bg-slate-100 rounded-lg p-2"
           placeholder="handle o Nombre de Usuario"
+          {...register("handle", {
+            required: "El nombre de usuario es obligatorio",
+          })}
         />
+        {errors.handle && <ErrorMessage>{errors.handle.message}</ErrorMessage>}
       </div>
 
       <div className="grid grid-cols-1 gap-2">
@@ -18,7 +46,13 @@ export default function ProfileView() {
         <textarea
           className="border-none bg-slate-100 rounded-lg p-2"
           placeholder="Tu Descripción"
+          {...register("description", {
+            required: "La descripción es obligatoria",
+          })}
         />
+        {errors.description && (
+          <ErrorMessage>{errors.description.message}</ErrorMessage>
+        )}
       </div>
 
       <div className="grid grid-cols-1 gap-2">
