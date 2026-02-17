@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form";
-import { useQueryClient } from "@tanstack/react-query";
+import { useQueryClient, useMutation } from "@tanstack/react-query";
 import ErrorMessage from "../components/ErrorMessage";
 import type { ProfileForm, User } from "../types";
+import { updateProfile } from "../api/DevTreeAPI";
+import { toast } from "sonner";
 export default function ProfileView() {
   const queryClient = useQueryClient();
   const data: User = queryClient.getQueryData(["user"])!;
@@ -10,20 +12,30 @@ export default function ProfileView() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<ProfileForm>({
     defaultValues: {
       handle: data.handle,
       description: data.description,
     },
   });
+  const updateProfileMutation = useMutation({
+    mutationFn: updateProfile,
+    onError: (error) => {
+      toast.error(error.message);
+    },
+    onSuccess: (data) => {
+      toast.success(data);
+      queryClient.invalidateQueries({ queryKey: ["user"] });
+    },
+  });
   const handleUserProfileForm = (formData: ProfileForm) => {
-    console.log(formData);
+    updateProfileMutation.mutate(formData);
   };
 
   return (
     <form
       className="bg-white p-10 rounded-lg space-y-5"
-      onSubmit={handleSubmit(() => {})}
+      onSubmit={handleSubmit(handleUserProfileForm)}
     >
       <legend className="text-2xl text-slate-800 text-center">
         Editar Información
