@@ -13,21 +13,26 @@
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "cloudinary": "^2.9.0",
     "colors": "^1.4.0",
     "cors": "^2.8.6",
     "D": "^1.0.0",
     "dotenv": "^16.6.1",
     "express": "^5.1.0",
     "express-validator": "^7.2.1",
+    "formidable": "^3.5.4",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^8.16.1",
     "nodemon": "^3.1.10",
-    "slug": "^11.0.0"
+    "slug": "^11.0.0",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
+    "@types/formidable": "^3.4.6",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/slug": "^5.0.9",
+    "@types/uuid": "^10.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
